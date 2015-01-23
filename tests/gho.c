@@ -19,7 +19,7 @@
 
 
 int main() {
-  
+
   printf("gho C library version  = %s\n", gho_version);
   printf("gho C library codename = %s\n", gho_codename);
   
