@@ -80,7 +80,10 @@ cmake_minimum_required(VERSION 2.6)
 	
 	enable_testing()
 	message(STATUS "---")
-
+	
+	# Valgrind
+	find_program(VALGRIND_EXE NAMES valgrind)
+	
 	# Tests
 	file(
 		GLOB_RECURSE
@@ -99,7 +102,11 @@ cmake_minimum_required(VERSION 2.6)
 		add_executable(${test_name} "${test_source}")
 		
 		# Test
-		add_test(${test_name} "${test_name}")
+		if (VALGRIND_EXE)
+			add_test(${test_name} "${VALGRIND_EXE}" "./${test_name}")
+		else()
+			add_test(${test_name} "./${test_name}")
+		endif()
 		
 	endforeach()
 
