@@ -17,6 +17,9 @@
 #include <stdlib.h>
 
 #include <gho/any.h>
+#include <gho/string.h>
+#include <gho/int.h>
+#include <gho/char.h>
 #include <gho/test.h>
 
 
@@ -29,13 +32,35 @@ int main(int argc, char** argv) {
   int nb_fail = 0;
   
   {
-    gho_string_t s = gho_string_create_from_c_str("An gho_string");
+    gho_string_t s = gho_string_create_from_c_str("A gho_string");
     printf("string = "); gho_string_print(&s); printf("\n");
     
     gho_any_t a = gho_string_to_any(&s);
     printf("any    = "); gho_any_print(&a); printf("\n");
     
     gho_string_destroy(&s);
+    gho_any_destroy(&a);
+  }
+  printf("\n");
+  
+  {
+    const int i = 7;
+    printf("int = "); gho_int_print(&i); printf("\n");
+    
+    gho_any_t a = gho_int_to_any(&i);
+    printf("any = "); gho_any_print(&a); printf("\n");
+    
+    gho_any_destroy(&a);
+  }
+  printf("\n");
+  
+  {
+    const char c = 'c';
+    printf("char = "); gho_char_print(&c); printf("\n");
+    
+    gho_any_t a = gho_char_to_any(&c);
+    printf("any  = "); gho_any_print(&a); printf("\n");
+    
     gho_any_destroy(&a);
   }
   printf("\n");
