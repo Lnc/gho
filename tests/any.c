@@ -20,6 +20,7 @@
 #include <gho/string.h>
 #include <gho/int.h>
 #include <gho/char.h>
+#include <gho/vector/string.h>
 #include <gho/test.h>
 
 
@@ -62,6 +63,22 @@ int main(int argc, char** argv) {
     printf("any  = "); gho_any_print(&a); printf("\n");
     
     gho_any_destroy(&a);
+  }
+  printf("\n");
+  
+  {
+    gho_vector_string_t v = gho_vector_string_create();
+    gho_vector_string_add_c_str(&v, "A");
+    gho_vector_string_add_c_str(&v, "vector");
+    gho_vector_string_add_c_str(&v, "of");
+    gho_vector_string_add_c_str(&v, "string");
+    printf("vector = "); gho_vector_string_print(&v); printf("\n");
+    
+    gho_any_t a = gho_vector_string_to_any(&v);
+    printf("any    = "); gho_any_print(&a); printf("\n");
+    
+    gho_any_destroy(&a);
+    gho_vector_string_destroy(&v);
   }
   printf("\n");
   
