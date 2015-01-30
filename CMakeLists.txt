@@ -59,7 +59,7 @@ cmake_minimum_required(VERSION 2.6)
 # Build gho doxygen
 	message(STATUS "---")
 	find_package(Doxygen)
-	if(DOXYGEN_FOUND)
+	if (DOXYGEN_FOUND)
 		message(STATUS "Doxygen found =) ${DOXYGEN_EXECUTABLE}")
 		add_custom_target(
 			doxygen
@@ -123,6 +123,7 @@ cmake_minimum_required(VERSION 2.6)
 	install(DIRECTORY include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
 	# .cmake
 	install(FILES cmake/gho-config.cmake DESTINATION lib/gho)
+	install(FILES cmake/gho_gmp-config.cmake DESTINATION lib/gho_gmp)
 	# Doxygen
 	if (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/doc/doxygen)
 		install(DIRECTORY doc/doxygen DESTINATION share/gho)
