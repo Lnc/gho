@@ -130,6 +130,41 @@ int main(int argc, char** argv) {
   }
   printf("\n");
   
+  
+  nb_fail += 2;
+  {
+    gho_mpz_t i = gho_mpz_create();
+    printf("i = ");
+    gho_mpz_print(&i);
+    printf("\n");
+    
+    const char* in = "74108529633692580147 is a big int";
+    gho_mpz_t j = gho_mpz_sread(&in);
+    gho_string_t s = gho_mpz_to_string(&j);
+    printf("j = %s\n", s.c_str);
+    nb_fail -= gho_test(gho_string_equal_c_str(&s, "74108529633692580147"),
+                        "gho_int_sread fails!\n");
+    gho_string_destroy(&s);
+    
+    printf("not read = %s\n", in);
+    nb_fail -= gho_test(gho_c_str_equal(in, "is a big int"),
+                        "gho_int_sread fails!\n");
+    
+    gho_mpz_t k = gho_mpz_copy(&j);
+    printf("k = ");
+    gho_mpz_print(&k);
+    printf("\n");
+    
+    gho_mpz_destroy(&k);
+    printf("j = ");
+    gho_mpz_print(&j);
+    printf("\n");
+    
+    gho_mpz_destroy(&i);
+    gho_mpz_destroy(&j);
+  }
+  printf("\n");
+  
   printf("%s ", argv[0]);
   printf("fails = %d\n", nb_fail);
   printf("\n");

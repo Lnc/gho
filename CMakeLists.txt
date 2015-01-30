@@ -107,6 +107,9 @@ cmake_minimum_required(VERSION 2.6)
 		
 		# Executable
 		add_executable(${test_name} "${test_source}")
+		if (GHO_GMP_FOUND)
+			target_link_libraries(${test_name} ${GHO_GMP_LIBRARY})
+		endif()
 		
 		# Test
 		if (VALGRIND_EXE)
