@@ -19,6 +19,7 @@
 #include <gho/matrix/int.h>
 #include <gho/matrix/lint.h>
 #include <gho/matrix/llint.h>
+#include <gho/matrix/mpz_t.h>
 #include <gho/test.h>
 
 
