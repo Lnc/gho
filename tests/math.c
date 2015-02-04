@@ -29,22 +29,22 @@ int main(int argc, char** argv) {
   int nb_fail = 0;
   
   ++nb_fail;
-  nb_fail -= gho_test(gho_min(1u, 7u) == 1, "gho_min(1u, 7u) fails!\n\n");
+  nb_fail -= gho_test(gho_T_min(1u, 7u) == 1, "gho_T_min(1u, 7u) fails!\n\n");
   
   ++nb_fail;
-  nb_fail -= gho_test(gho_min(1, -7) == -7, "gho_min(1, -7) fails!\n\n");
+  nb_fail -= gho_test(gho_T_min(1, -7) == -7, "gho_T_min(1, -7) fails!\n\n");
   
   ++nb_fail;
-  nb_fail -= gho_test(gho_max(7u, 6u) == 7, "gho_max(7u, 6u) fails!\n\n");
+  nb_fail -= gho_test(gho_T_max(7u, 6u) == 7, "gho_T_max(7u, 6u) fails!\n\n");
   
   ++nb_fail;
-  nb_fail -= gho_test(gho_max(1, -7) == 1, "gho_max(1, -7) fails!\n\n");
+  nb_fail -= gho_test(gho_T_max(1, -7) == 1, "gho_T_max(1, -7) fails!\n\n");
   
   ++nb_fail;
-  nb_fail -= gho_test(gho_ceil_div(5, 2) == 3, "gho_ceil_div(5, 2) fails!\n\n");
+  nb_fail -= gho_test(gho_T_ceil_div(5, 2) == 3, "gho_T_ceil_div(5, 2) fails!\n\n");
   
   ++nb_fail;
-  nb_fail -= gho_test(gho_floor_div(5, 2) == 2, "gho_floor_div(5, 2) fails!\n\n");
+  nb_fail -= gho_test(gho_T_floor_div(5, 2) == 2, "gho_T_floor_div(5, 2) fails!\n\n");
   
   printf("%s ", argv[0]);
   printf("fails = %d\n", nb_fail);
