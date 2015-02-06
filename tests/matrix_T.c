@@ -138,6 +138,23 @@ int main(int argc, char** argv) {
   }
   printf("\n");
   
+  #ifdef gho_with_gmp
+  ++nb_fail;
+  {
+    gho_matrix_mpz_t m = gho_matrix_mpz_create_n_m(4, 3);
+    
+    printf("After creation =\n");
+    gho_matrix_mpz_print(&m);
+    printf("\n");
+    
+    nb_fail -= gho_test(m.nb_row == 4 && m.nb_col == 3,
+                        "gho_matrix_mpz_create_n_m fails!\n\n");
+    
+    gho_matrix_mpz_destroy(&m);
+  }
+  printf("\n");
+  #endif
+  
   printf("%s ", argv[0]);
   printf("fails = %d\n", nb_fail);
   printf("\n");
