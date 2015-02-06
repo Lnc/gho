@@ -147,7 +147,7 @@ int main(int argc, char** argv) {
     gho_string_destroy(&s);
     
     printf("not read = %s\n", in);
-    nb_fail -= gho_test(gho_c_str_equal(in, "is a big int"),
+    nb_fail -= gho_test(gho_c_str_equal(in, " is a big int"),
                         "gho_int_sread fails!\n");
     
     gho_mpz_t k = gho_mpz_copy(&j);
