@@ -49,6 +49,11 @@ cmake_minimum_required(VERSION 2.6)
 	message(STATUS "---")
 	find_package(gho_gmp PATHS "${FIND_PACKAGE_LOCAL_PATH}" NO_DEFAULT_PATH)
 
+# Get gho_include
+	message(STATUS "---")
+	execute_process(COMMAND "git" "submodule" "init")
+	execute_process(COMMAND "git" "submodule" "update")
+
 # gho
 	message(STATUS "---")
 	set(gho_INCLUDE "./include")
