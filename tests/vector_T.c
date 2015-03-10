@@ -18,6 +18,7 @@
 
 #include <gho/vector/any.h>
 #include <gho/vector/int.h>
+#include <gho/vector/llint.h>
 #include <gho/vector/size_t.h>
 #include <gho/vector/start_and_size.h>
 #include <gho/vector/string.h>
