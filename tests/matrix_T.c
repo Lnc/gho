@@ -143,12 +143,41 @@ int main(int argc, char** argv) {
   {
     gho_matrix_mpz_t m = gho_matrix_mpz_create_n_m(4, 3);
     
-    printf("After creation =\n");
+    printf("After creation (mpz) =\n");
     gho_matrix_mpz_print(&m);
     printf("\n");
     
     nb_fail -= gho_test(m.nb_row == 4 && m.nb_col == 3,
                         "gho_matrix_mpz_create_n_m fails!\n\n");
+    printf("\n");
+    
+    gho_matrix_mpz_add_col_before(&m, 0);
+    
+    printf("After add (mpz) =\n");
+    gho_matrix_mpz_print(&m);
+    printf("\n");
+    printf("\n");
+    
+    gho_matrix_mpz_remove_row(&m, 0);
+    
+    printf("After remove (mpz) =\n");
+    gho_matrix_mpz_print(&m);
+    printf("\n");
+    printf("\n");
+    
+    gho_matrix_mpz_add_row_before(&m, 0);
+    
+    printf("After add (mpz) =\n");
+    gho_matrix_mpz_print(&m);
+    printf("\n");
+    printf("\n");
+    
+    gho_matrix_mpz_remove_col(&m, 0);
+    
+    printf("After remove (mpz) =\n");
+    gho_matrix_mpz_print(&m);
+    printf("\n");
+    printf("\n");
     
     gho_matrix_mpz_destroy(&m);
   }
