@@ -1,3 +1,4 @@
+# Copyright © 2014, 2015 Lénaïc Bagnères, hnc@singularity.fr
 # Copyright © 2015 Inria, Written by Lénaïc Bagnères, lenaic.bagneres@inria.fr
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,35 +14,26 @@
 # limitations under the License.
 
 
-# Try to find the gho library
+# Determine if platform is OS X or not
 
-# GHO_FOUND       - System has gho library
-# GHO_INCLUDE_DIR - The gho include directory
+# GHO_OS_X_FOUND - Platform is OS X
+# GHO_OS_X_MACRO - Macro to define
 
 
-find_file(GHO_INCLUDE_DIR "gho/gho.h")
+set(GHO_OS_X_MACRO "gho_os_x")
 
-if (GHO_INCLUDE_DIR)
+if (APPLE AND ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 	
-	set(GHO_FOUND "TRUE")
+	set(GHO_OS_X_FOUND "TRUE")
 	
-	message(STATUS "Library gho found =) ${GHO_INCLUDE_DIR}")
+	add_definitions("-D${GHO_OS_X_MACRO}")
+	
+	message(STATUS "Platform is OS X :(")
 	
 else()
 	
-	set(GHO_FOUND "FALSE")
+	set(GHO_UNIX_FOUND "FALSE")
 	
-	message(STATUS "Library gho not found :(")
+	message(STATUS "Platform is not OS X =)")
 	
 endif()
-
-
-find_package(gho_gmp)
-
-find_package(gho_linux)
-
-find_package(gho_os_x)
-
-find_package(gho_unix)
-
-find_package(gho_windows)

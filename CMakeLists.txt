@@ -54,6 +54,22 @@ cmake_minimum_required(VERSION 2.6)
 	message(STATUS "---")
 	find_package(gho_gmp PATHS "${FIND_PACKAGE_LOCAL_PATH}" NO_DEFAULT_PATH)
 
+# Linux
+	message(STATUS "---")
+	find_package(gho_linux PATHS "${FIND_PACKAGE_LOCAL_PATH}" NO_DEFAULT_PATH)
+
+# OS X
+	message(STATUS "---")
+	find_package(gho_os_x PATHS "${FIND_PACKAGE_LOCAL_PATH}" NO_DEFAULT_PATH)
+
+# UNIX
+	message(STATUS "---")
+	find_package(gho_unix PATHS "${FIND_PACKAGE_LOCAL_PATH}" NO_DEFAULT_PATH)
+
+# Windows
+	message(STATUS "---")
+	find_package(gho_windows PATHS "${FIND_PACKAGE_LOCAL_PATH}" NO_DEFAULT_PATH)
+
 # gho
 	message(STATUS "---")
 	set(gho_INCLUDE "./include")

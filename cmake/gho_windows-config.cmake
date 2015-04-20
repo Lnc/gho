@@ -1,3 +1,4 @@
+# Copyright © 2014, 2015 Lénaïc Bagnères, hnc@singularity.fr
 # Copyright © 2015 Inria, Written by Lénaïc Bagnères, lenaic.bagneres@inria.fr
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,35 +14,28 @@
 # limitations under the License.
 
 
-# Try to find the gho library
+# Determine if platform is WINDOWS or not
 
-# GHO_FOUND       - System has gho library
-# GHO_INCLUDE_DIR - The gho include directory
+# GHO_WINDOWS_FOUND - Platform is WINDOWS
+# GHO_WINDOWS_MACRO - Macro to define
 
 
-find_file(GHO_INCLUDE_DIR "gho/gho.h")
+set(GHO_WINDOWS_MACRO "gho_windows")
 
-if (GHO_INCLUDE_DIR)
+if (WIN32 OR WIN64)
 	
-	set(GHO_FOUND "TRUE")
+	set(GHO_WINDOWS_FOUND "TRUE")
 	
-	message(STATUS "Library gho found =) ${GHO_INCLUDE_DIR}")
+	add_definitions("-D${GHO_WINDOWS_MACRO}")
+	
+	link_libraries(shlwapi)
+	
+	message(STATUS "Platform is Windows :(")
 	
 else()
 	
-	set(GHO_FOUND "FALSE")
+	set(GHO_WINDOWS_FOUND "FALSE")
 	
-	message(STATUS "Library gho not found :(")
+	message(STATUS "Platform is not Windows =)")
 	
 endif()
-
-
-find_package(gho_gmp)
-
-find_package(gho_linux)
-
-find_package(gho_os_x)
-
-find_package(gho_unix)
-
-find_package(gho_windows)
