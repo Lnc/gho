@@ -70,7 +70,7 @@ int main(int argc, char** argv) {
     gho_string_t string = gho_string_create();
     gho_string_t string_moved = gho_string_create_from_c_str("To be moved");
     
-    gho_string_absorb_(&string, &string_moved);
+    gho_string_absorb(&string, &string_moved);
     
     nb_fail -= gho_test(
       gho_string_equal_c_str(&string, "To be moved"),
@@ -85,11 +85,11 @@ int main(int argc, char** argv) {
     gho_string_t string = gho_string_create();
     gho_c_str_t string_moved = gho_c_str_create_from_c_str("To be moved");
     
-    gho_string_absorb_c_str_(&string, &string_moved);
+    gho_string_absorb_c_str(&string, &string_moved);
     
     nb_fail -= gho_test(
       gho_string_equal_c_str(&string, "To be moved"),
-      "gho_string_absorb_c_str_ fails\n"
+      "gho_string_absorb_c_str fails\n"
     );
     
     gho_string_destroy(&string);

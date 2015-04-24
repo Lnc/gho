@@ -46,19 +46,19 @@ int main(int argc, char** argv) {
     gho_vector_int_print(&v);
     printf("\n");
     
-    gho_vector_int_add_(&v, 21);
-    gho_vector_int_add_(&v, 7);
-    gho_vector_int_add_(&v, 42);
-    gho_vector_int_add_(&v, 73);
-    gho_vector_int_add_(&v, -1);
-    gho_vector_int_add_(&v, -8);
+    gho_vector_int_add_T(&v, 21);
+    gho_vector_int_add_T(&v, 7);
+    gho_vector_int_add_T(&v, 42);
+    gho_vector_int_add_T(&v, 73);
+    gho_vector_int_add_T(&v, -1);
+    gho_vector_int_add_T(&v, -8);
     
     printf("After add      = ");
     gho_vector_int_print(&v);
     printf("\n");
     
     nb_fail -= gho_test(gho_vector_int_empty(&v) == false,
-                        "gho_vector_int_add_ fails!\n");
+                        "gho_vector_int_add_T fails!\n");
     
     gho_vector_int_sort(&v);
     
