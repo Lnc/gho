@@ -16,10 +16,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <gho/matrix/any.h>
+#include <gho/matrix/char.h>
 #include <gho/matrix/int.h>
 #include <gho/matrix/lint.h>
 #include <gho/matrix/llint.h>
 #include <gho/matrix/mpz_t.h>
+#include <gho/matrix/size_t.h>
+#include <gho/matrix/string.h>
+#include <gho/matrix/uint.h>
+#include <gho/matrix/ulint.h>
+#include <gho/matrix/ullint.h>
 #include <gho/test.h>
 
 

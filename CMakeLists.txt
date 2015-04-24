@@ -32,7 +32,7 @@ cmake_minimum_required(VERSION 2.6)
 
 # General C++ flags
 	# General
-	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Wconversion -Wsign-conversion -std=c11 -pedantic")
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Wconversion -Wsign-conversion -std=c99 -pedantic")
 	# Thread support
 	if ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")
 		set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
