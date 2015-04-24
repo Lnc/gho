@@ -19,7 +19,9 @@ Apache License, Version 2.0
  --------------------
 
 Required:
-- C11 compiler
+- C99 compiler
+
+Optional:
 - CMake build system
 
 
